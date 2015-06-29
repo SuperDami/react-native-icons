@@ -7,5 +7,6 @@
 #import "FAKFoundationIcons.h"
 #import "FAKZocial.h"
 #import "FAKIonIcons.h"
+#import "MomoIcon.h"
 
 #endif

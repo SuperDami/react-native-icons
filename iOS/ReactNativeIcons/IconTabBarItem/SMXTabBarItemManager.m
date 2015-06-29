@@ -40,30 +40,37 @@ RCT_CUSTOM_VIEW_PROPERTY(icon, NSDictionary, SMXTabBarItem)
             target = [FAKFoundationIcons class];
         }
         
-        SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@IconWithSize:",[self camelcase:iconIdentifier]]);
-        
-        if(!target || ![target respondsToSelector:selector]) {
-            if(target) {
-                NSLog(@"No icon '%@' in '%@' icon font", iconIdentifier, fontPrefix);
-                RCTLogError(@"No icon '%@' in '%@' icon font", iconIdentifier, fontPrefix);
-            } else {
-                NSLog(@"No icon font named '%@'", fontPrefix);
-                RCTLogError(@"No icon font named '%@'", fontPrefix);
+        FAKIcon *icon = NULL;
+        if([fontPrefix isEqualToString:@"momo"]) {
+            unichar code = [[MomoIcon iconCodes][iconIdentifier] unsignedShortValue];
+            icon = [MomoIcon iconWithUnchar:code size:size];
+        } else {
+            SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@IconWithSize:",[self camelcase:iconIdentifier]]);
+            
+            if(!target || ![target respondsToSelector:selector]) {
+                if(target) {
+                    NSLog(@"No icon '%@' in '%@' icon font", iconIdentifier, fontPrefix);
+                    RCTLogError(@"No icon '%@' in '%@' icon font", iconIdentifier, fontPrefix);
+                } else {
+                    NSLog(@"No icon font named '%@'", fontPrefix);
+                    RCTLogError(@"No icon font named '%@'", fontPrefix);
+                }
+                return;
             }
-            return;
+            
+            NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:selector]];
+            [inv setSelector:selector];
+            [inv setTarget:target];
+            [inv setArgument:&size atIndex:2]; //arguments 0 and 1 are self and _cmd respectively, automatically set by NSInvocation
+            [inv retainArguments];
+            [inv invoke];
+            
+            CFTypeRef result;
+            [inv getReturnValue:&result];
+            
+            icon = (__bridge id)result;
         }
         
-        NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[target methodSignatureForSelector:selector]];
-        [inv setSelector:selector];
-        [inv setTarget:target];
-        [inv setArgument:&size atIndex:2]; //arguments 0 and 1 are self and _cmd respectively, automatically set by NSInvocation
-        [inv retainArguments];
-        [inv invoke];
-        
-        CFTypeRef result;
-        [inv getReturnValue:&result];
-        
-        FAKIcon *icon = (__bridge id)result;
         [icon setAttributes:@{NSForegroundColorAttributeName: color}];
         
         UIImage *image = [icon imageWithSize:CGSizeMake(size,size)];

@@ -18,6 +18,7 @@
 		2F343ACF1AE46C28002B3539 /* FAKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F343ABD1AE46C28002B3539 /* FAKIcon.m */; };
 		2F343AD01AE46C28002B3539 /* FAKIonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F343ABF1AE46C28002B3539 /* FAKIonIcons.m */; };
 		2F343AD11AE46C28002B3539 /* FAKZocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F343AC11AE46C28002B3539 /* FAKZocial.m */; };
+		D1C636041B4125DF001CDB9A /* MomoIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C636031B4125DF001CDB9A /* MomoIcon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,9 @@
 		2F343AC51AE46C28002B3539 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		2F343AC61AE46C28002B3539 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
 		2F5A3EB81ACDBF8000439386 /* libReactNativeIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C636011B4125DF001CDB9A /* Momo-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Momo-Font.ttf"; sourceTree = "<group>"; };
+		D1C636021B4125DF001CDB9A /* MomoIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomoIcon.h; sourceTree = "<group>"; };
+		D1C636031B4125DF001CDB9A /* MomoIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomoIcon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,9 @@
 		2F343AB71AE46C28002B3539 /* FontAwesomeKit */ = {
 			isa = PBXGroup;
 			children = (
+				D1C636011B4125DF001CDB9A /* Momo-Font.ttf */,
+				D1C636021B4125DF001CDB9A /* MomoIcon.h */,
+				D1C636031B4125DF001CDB9A /* MomoIcon.m */,
 				2F343AB81AE46C28002B3539 /* FAKFontAwesome.h */,
 				2F343AB91AE46C28002B3539 /* FAKFontAwesome.m */,
 				2F343ABA1AE46C28002B3539 /* FAKFoundationIcons.h */,
@@ -218,6 +225,7 @@
 				2F343ACB1AE46C28002B3539 /* SMXTabBarItemManager.m in Sources */,
 				2F343ACA1AE46C28002B3539 /* SMXTabBarItem.m in Sources */,
 				2F343AD11AE46C28002B3539 /* FAKZocial.m in Sources */,
+				D1C636041B4125DF001CDB9A /* MomoIcon.m in Sources */,
 				2F343ACE1AE46C28002B3539 /* FAKFoundationIcons.m in Sources */,
 				2F343AC81AE46C28002B3539 /* FAKIconImageManager.m in Sources */,
 				2F343AC91AE46C28002B3539 /* SMXTabBar.m in Sources */,
