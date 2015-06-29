@@ -54,6 +54,8 @@
  */
 + (instancetype)iconWithCode:(NSString *)code size:(CGFloat)size;
 
++ (instancetype)iconWithUnchar:(unichar)iconChar size:(CGFloat)size;
+
 /**
  *  Adds an attribute with the given name and value to the icon.
  *

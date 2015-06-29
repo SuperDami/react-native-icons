@@ -37,6 +37,14 @@
     return icon;
 }
 
++ (instancetype)iconWithUnchar:(unichar)iconChar size:(CGFloat)size {
+    unichar *code = malloc(sizeof(unichar) * 1);
+    code[0] = iconChar;
+    NSString *codeString = [NSString stringWithCharacters:code length:1];
+    
+    return [[self class] iconWithCode:codeString size:size];
+}
+
 - (NSAttributedString *)attributedString
 { 
     return [self.mutableAttributedString copy];
